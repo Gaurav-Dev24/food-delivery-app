@@ -1,15 +1,15 @@
 - Header component
-- - logo
-- - nav items (Home, About Us, Contact Us, Cart)
+ - logo
+ - nav items (Home, About Us, Contact Us, Cart)
 - Body component
-- - Search bar
-- - Restaurant container
-- - Restaurant card (image, name, cuisine, rating, delivery time)
+ - Search bar
+ - Restaurant container
+ - Restaurant card (image, name, cuisine, rating, delivery time)
 - Footer component
-- - copyright notice
-- - links (Home, About Us, Contact Us, Cart)
-- - address
-- - contact information
+ - copyright notice
+ - links (Home, About Us, Contact Us, Cart)
+ - address
+ - contact information
 
 // Traditional way of writing functional component with props
 const RestaurantCard = (props) => {
