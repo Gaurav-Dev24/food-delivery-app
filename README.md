@@ -12,7 +12,7 @@
 - contact information
 
 // Traditional way of writing functional component with props
-<!-- const RestaurantCard = (props) => {
+const RestaurantCard = (props) => {
 console.log(props);
 return (
 
@@ -30,10 +30,10 @@ className="card-image"
 </div>
 </div>
 )
-} -->
+}
 
 // Destructuring props in the function parameter
-<!-- const RestaurantCard = (props) => {
+const RestaurantCard = (props) => {
 const { resName, cuisine, rating, deliveryTime } = props; // Destructuring props
 console.log(props);
 return (
@@ -52,7 +52,7 @@ return (
  </div>
  </div>
  )
- } -->
+ }
 
 There are two types of Export and Imports in react
 
