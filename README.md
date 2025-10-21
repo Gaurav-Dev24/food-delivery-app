@@ -1,16 +1,55 @@
-# React + Vite
+/**
+ * Header component
+ *  - logo
+ *  - nav items (Home, About Us, Contact Us, Cart)
+ * Body component
+ *  - Search bar
+ *  - Restaurant container
+ *    - Restaurant card (image, name, cuisine, rating, delivery time)
+ * Footer component
+ *  - copyright notice
+ *  - links (Home, About Us, Contact Us, Cart)
+ *  - address
+ *  - contact information
+ */
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ // Traditional way of writing functional component with props
+  // const RestaurantCard = (props) => {
+  //   console.log(props);
+  //   return (
+  //     <div className="restaurant-card">
+  //       <img
+  //         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh"
+  //         alt="Restaurant"
+  //         className="card-image"
+  //       />
+  //       <div className="card-body p-3 bg-light">
+  //         <h5 className="card-title">{props.resName}</h5>
+  //         <p className="card-text">{props.cuisine}</p>
+  //         <p className="card-text">{getStars(props.rating)}</p>
+  //         <p className="card-text">{props.deliveryTime}</p>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  // Destructuring props in the function parameter
+  // const RestaurantCard = (props) => {
+  //   const { resName, cuisine, rating, deliveryTime } = props; // Destructuring props
+  //   console.log(props);
+  //   return (
+  //     <div className="restaurant-card">
+  //       <img
+  //         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh"
+  //         alt="Restaurant"
+  //         className="card-image"
+  //       />
+  //       <div className="card-body p-3 bg-light">
+  //         <h5 className="card-title">{resName}</h5>
+  //         <p className="card-text">{cuisine}</p>
+  //         <p className="card-text">{getStars(rating)}</p>
+  //         <p className="card-text">{deliveryTime}</p>
+  //       </div>
+  //     </div>
+  //   )
+  // }
