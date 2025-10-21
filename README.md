@@ -65,3 +65,10 @@ import Component from "path";
 
 export const Component;
 import {Component} from "path";
+
+
+# React Hooks - (Normal JS Utility Functions)
+- useState() 
+    - use to generate super powerful states/variables in react
+    - whenever a state variable updates react re-renders the component
+- useEffect()

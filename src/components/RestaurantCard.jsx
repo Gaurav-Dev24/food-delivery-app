@@ -28,7 +28,7 @@ const RestaurantCard = (info) => {
             <div className="card-body p-3">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{cuisines.join(", ")}</p>
-                <p className="card-text">{getStars(avgRating)}</p>
+                <p className="card-text">{avgRating} {getStars(avgRating)}</p>
                 <p className="card-text">{deliveryTime}, {costForTwo}</p>
             </div>
         </div>
