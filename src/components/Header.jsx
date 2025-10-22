@@ -1,7 +1,9 @@
-import React from "react";
+import {useState} from "react";
 import { LOGO_URL } from "../utils/constants.jsx";
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState("Login");
+
   return (
     <div className="header d-flex justify-content-between align-items-center p-2 text-white">
       <div className="logo-container">
@@ -24,6 +26,11 @@ const Header = () => {
         <a href="#cart" className="nav-link">
           Cart
         </a>
+        <button className="btn btn-outline-light" onClick={() => {
+          setIsLoggedIn(isLoggedIn === "Login" ? "Logout" : "Login");
+        }}>
+          {isLoggedIn}
+        </button>
       </div>
     </div>
   );
