@@ -6,18 +6,19 @@ import Shimmer from "./Shimmer.jsx";
 const Body = () => {
     // Local state to manage filtered restaurant data - superpowerful variable
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
-    // const [filteredData, setFilteredData] = useState(restaurantData);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5782678&lng=88.4609782&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json);
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
+        setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
     }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     // Conditional rendering
     // if(listOfRestaurants.length === 0) {
@@ -26,21 +27,30 @@ const Body = () => {
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body p-4">
-            <div className="search-bar p-3">
+            <div className="search-bar p-3 d-flex justify-content-center gap-2">
                 <input
                     type="text"
                     className="form-control"
                     placeholder="Search for restaurants or cuisines"
+                    value={searchText}
+                    onChange={(e) => {
+                        setSearchText(e.target.value);
+                    }}
                 />
+                <button className="btn btn-dark" onClick={() => {
+                    const filtered = listOfRestaurants.filter(restaurant => restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                    setFilteredRestaurants(filtered);
+                }}>Search</button>
             </div>
             <div className="filter-bar d-flex justify-content-start align-items-center gap-3 p-3">
+                <span className="fs-4 fw-bold">Filters :</span>
                 <button className="btn btn-outline-primary" onClick={() => {
                     const filtered = listOfRestaurants.filter(restaurant => parseFloat(restaurant.info.avgRating) >= 4);
                     setListOfRestaurants(filtered);
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="restaurant-container d-flex flex-wrap gap-3 p-3">
-                {listOfRestaurants.map((restaurant) => (
+                {filteredRestaurants.map((restaurant) => (
                     <RestaurantCard key={restaurant.info.id} {...restaurant.info} />
                 ))}
             </div>
